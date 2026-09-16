@@ -3,6 +3,7 @@ let app= express();   //create object of express
 let hrroutes=require('./routes/hr_route');
 
 app.use("/api/hr",hrroutes);  //use the route
+app.use("/api/emp",emproutes); //use the route
 
 //run the server
 
