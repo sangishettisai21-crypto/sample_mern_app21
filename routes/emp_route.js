@@ -1,19 +1,24 @@
 let express = require('express');
 let router=express.Router();
 
-router.post("register", (req, res) => {
-    res.send("register route");
+let {users}=require('../models/users');
+//localhost:3000/api/emp/register   
+router.post("/register",async (req, res) => {
+    console.log(req.body);
+    let newuser=users(req.body);
+    let result=await newuser.save();
+    res.send(result);
 })
 
-router.post("login", (req, res) => {
+router.post("/login", (req, res) => {
     res.send("login route");
 })
  
-router.get("viewtask", (req, res) => {
+router.get("/viewtask", (req, res) => {
     res.send("view task route");
 })
 
-router.put("updatestatus", (req, res) => {
+router.put("/updatestatus", (req, res) => {
     res.send("update status route");
 })
 
